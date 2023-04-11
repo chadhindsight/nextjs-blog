@@ -1,8 +1,20 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
+import { getSortedPostsData } from '../lib/posts';
 
-export default function Home() {
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  // By returning allPostsData inside the props object in getStaticProps.
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+//The blog posts will be passed to the Home component as a prop.
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
