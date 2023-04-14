@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 const name = 'Mandem';
 export const siteTitle = 'Next.js Sample Website';
+// Another day I guess :(
 
 export default function Layout({ children, home }) {
     return (
